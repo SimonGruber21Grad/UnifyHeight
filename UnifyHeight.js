@@ -1,4 +1,4 @@
-class UnfiyHeight extends Loggable {
+class UnfiyHeight {
     constructor(container, item, logActive = false) {
         super("UnfiyHeight", logActive);
 
