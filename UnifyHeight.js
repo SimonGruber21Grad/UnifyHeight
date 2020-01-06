@@ -1,5 +1,3 @@
-import Loggable from './Loggable';
-
 class UnfiyHeight extends Loggable {
     constructor(container, item, logActive = false) {
         super("UnfiyHeight", logActive);
@@ -17,20 +15,18 @@ class UnfiyHeight extends Loggable {
             var containers, container, items, i;
             containers = document.querySelectorAll(this._container);
             if (containers.length > 0) {
-                this.log(`${containers.length} container(s) found`);
                 for (i = 0; i < containers.length; i++) {
                     container = containers[i];
                     items = container.querySelectorAll(this._item);
 
                     if (items.length > 1) {
-                        this.log(`${items.length} item(s) found`);
                         this._collector[this._collector.length] = items;
                     }
                 }
             }
 
         } catch (error) {
-            this.error(error);
+            console.error(error);
         }
     }
 
@@ -46,7 +42,7 @@ class UnfiyHeight extends Loggable {
             if (typeof height === "string") item.style.height = height;
             else item.style.height = height + "px";
         } catch (error) {
-            this.error(error);
+            console.error(error);
         }
     }
 
@@ -54,7 +50,7 @@ class UnfiyHeight extends Loggable {
         try {
             this._setItemHeight(item, 'auto');
         } catch (error) {
-            this.error(error);
+            console.error(error);
         }
     }
 
@@ -84,7 +80,7 @@ class UnfiyHeight extends Loggable {
             }
 
         } catch (error) {
-            this.error(error);
+            console.error(error);
         }
     }
 
@@ -122,8 +118,6 @@ class UnfiyHeight extends Loggable {
                     }
                 }
 
-                this.log(`Unified height: ${maxHeight}`);
-
                 for (k = 0; k < items.length; k++) {
                     item = items[k];
                     this._setItemHeight(item, maxHeight);
@@ -132,7 +126,7 @@ class UnfiyHeight extends Loggable {
                 this._resized = true;
             }
         } catch (error) {
-            this.error(error);
+            console.error(error);
         }
     }
 }
